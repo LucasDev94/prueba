@@ -66,3 +66,16 @@ Con lo anterior ya esta sincronizado el repositorio local con el repositorio rem
 EN GITHUB
 
 20. Desde el editor de texto de GitHub se puede editar los archivos, luego en preview y desde la misma interfaz grafica se puede hacer un commit
+
+EN GIT
+
+21. Para traer los cambios que ya estan en GitHub se debe hacer un pull indicando la rama que quiero traer
+    git pull origin main
+
+---(Por buena practica es recomendable que antes de enviar cambio de Git a GitHub primero se haga un pull, es decir, repetir el paso 21)---
+
+22. Al hacer cambios en los archivos de mi repositorio local se debe hacer commits normalmente
+    git commit -am "mensaje del commit"
+
+23. Enviar commits al repositorio en github
+    git push origin main
