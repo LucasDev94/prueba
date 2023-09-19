@@ -58,7 +58,7 @@ Navegar hasta donde esta el repositorio local y ejecutar:
     git pull origin main --allow-unrelated-histories
 
 19. Ya con los errores solucionados ya se puede enviar sincronizar el repositorio local con el repositorio en github, para ello se hace un push
-    git push origin master
+    git push origin main
 
 Con lo anterior ya esta sincronizado el repositorio local con el repositorio remoto en github
 
@@ -79,3 +79,5 @@ EN GIT
 
 23. Enviar commits al repositorio en github
     git push origin main
+
+El termino "origin" indica el nombre del origen remoto y local, pero puede ser cambiado, por ejemplo para el repositorio de pruebas le llame "originPrueba"
