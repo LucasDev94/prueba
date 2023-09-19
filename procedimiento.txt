@@ -1,0 +1,68 @@
+PROCEDIMIENTO PARA SINCRONIZACIÓN ENTRE GIT Y GITHUB
+
+1. Revisar la configuración global de la instalación de GIT
+    git config -l
+
+2. El correo de Git debe ser el mismo que se tenga registrado en GitHub, por tanto se debe establecer
+    git config --global user.mail "micorreo@example.com"
+
+3. Generación de llaves publica y privada: para este paso es bueno ubicarse en la carpeta del home de mi usuario, para el caso de Windows es /c/Users/miUsuario luego dar la orden de generación de llaves
+    ssh-keygen -t rsa -b 4096 -C "micorreo@example.com"
+
+4. Encender o revisar que el servidor de llaves SSH este prendido
+    eval $(ssh-agent -s)
+
+5. Agregar la llave al entorno de Windows, es decir, al servidor de llaves SSH
+    ssh-add ruta/donde/guardaste/tu/llave/privada
+    ejemplo: ssh ~/.ssh/id-rsa
+
+GITHUB
+
+6. Hacer el registro normal en la pagina de GitHub
+
+7. Para sincronizar un repositorio local con github, entonces en github se debe crear un "Nuevo repositorio"
+
+8. Se recomienda iniciarlizar el nuevo repositorio con un "README"
+
+9. En el perfil buscar la opcion "Settings" y luego "SSH and GPG keys"
+
+10. Clic en "New SSH key" para compartir la llave publica generada en la consola de Git local
+
+DE VUELTA A GIT
+
+11. Desde la consola de Git, navegar hasta la ubicación del proyecto a sincronizar con github
+
+12. Agregar un origen remoto de nuestros archivos
+    git remote add origin url-ssh-del-repositorio-en-github
+    ejemplo: git remote add origin https://github.com/LucasDev94/hyperblog.git
+
+13. Verificar origen
+    git remote
+
+14. Verificar origen de forma especifica o verbal
+    git remote -v
+
+15. Github cambio de nomenclatura, ahora la rama principal cambio de "master" a "main", por tanto en los proyectos ya creados que tienen la rama principal como "master" se les debe hacer el cambio para que la rama principal sea "main" de la siguiente manera:
+Navegar hasta donde esta el repositorio local y ejecutar:
+    git branch -m main
+
+16. Enviar mi repositorio local a mi repositorio en GitHub, es decir, hacer un push
+    git push origin main
+
+17. Al ejecutar el comando anterior se genera un error debido a que el repositorio en GitHub es totalmente diferente al repositorio local, por tanto lo primero es traer el repositorio remoto al local, es decir, hacer un pull, trayendo todo a nuestra rama principal "main"
+    git pull origin main
+
+---(una historia es un grupo de commits)---
+
+18. Al hacer un pull, nuevamente debido a que son historias diferentes Git se reusa a fusionar historias diferentes, esto se resuelve con
+    git pull origin main --allow-unrelated-histories
+
+19. Ya con los errores solucionados ya se puede enviar sincronizar el repositorio local con el repositorio en github, para ello se hace un push
+    git push origin master
+
+Con lo anterior ya esta sincronizado el repositorio local con el repositorio remoto en github
+
+
+EN GITHUB
+
+20. Desde el editor de texto de GitHub se puede editar los archivos, luego en preview y desde la misma interfaz grafica se puede hacer un commit
