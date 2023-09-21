@@ -1,0 +1,18 @@
+Comandos git log
+
+ver el registro
+	git log
+
+ver todo el registro
+	git log --all
+
+ver todo el registro con lineas de las ramas o branch
+	git log --all --graph
+
+ver todo el registro con lineas de las ramas o branch y simplificado
+	git log --all --graph --decoration --oneline
+
+agrupar el comando en un alias
+	alias nombreDelAlias="git log --all --graph --decoration --oneline"
+	ejemplo: alias arbolito="git log --all --graph --decoration --oneline"
+

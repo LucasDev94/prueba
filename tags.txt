@@ -1,0 +1,34 @@
+TAGS
+
+Los tags sirven para implementar versiones de un programa o proyecto en github
+
+agregar un tag a cualquier commit
+	git tag -a v0.1 -m "Resultado de las primeras clases del curso" f0da6af
+	-a = add = agregar
+	-m = mensaje
+	v0.1 = es el nombre de la version que se quiera darle, ese nombre se puede cambiar a gusto del desarrollador
+
+ver todas las tags o etiquetas
+	git tag
+	git show-ref --tags
+
+Enviar tags a github, pero primero se recomienda hacer un pull
+	git pull origin main
+
+Enviar tags a git hub
+	git push origin --tags
+
+Si lo anterior salio todo correcto entonces ya los tags pueden ser revisados en github
+
+Eliminar tags
+	git tag -d nombreTag
+	-d = delete = eliminar
+	nombreTag = Nombre del tag a eliminar
+	Lo anterior elimina el tag de Git pero no de GitHub, ejemplo: v0.2
+
+Enviar tags a github
+	git push origin --tags
+	recordar que origin es el nombre del origen remoto en github, pero al momento de crear dicho origen puede adquirir otro nombre, ejemplo: origPrueba o repoRemoto o origin o el que uno quiera
+
+Eliminar el tag de github desde git
+	git push origin :refs/tags/nombreTag
